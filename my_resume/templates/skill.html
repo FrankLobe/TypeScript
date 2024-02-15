@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block page_title %}{{page_title}}{% endblock %}
+{% block skill_active %}active{% endblock %}
+{% block page_content %}
+{% load static %}
+<div id="skill"></div>
+<script>
+    const jobType = "{{ job_type }}";
+    window.sessionStorage.setItem("jobType", jobType);
+</script>
+<script src="{% static 'scripts/skill.js' %}"></script>
+{% endblock %}

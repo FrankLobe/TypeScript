@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block page_title %}{{page_title}}{% endblock %}
+{% block education_active %}active{% endblock %}
+{% block page_content %}
+{% load static %}
+<div id="education"></div>
+<script src="{% static 'scripts/education.js' %}"></script>
+{% endblock %}

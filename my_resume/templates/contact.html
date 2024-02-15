@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% block page_title %}{{page_title}}{% endblock %}
+{% block contact_active %}active{% endblock %}
+{% block page_content %}
+{% load static %}
+<form id="contact" method="POST">
+    {% csrf_token %}
+
+    <div id="errors">
+        {% for error_message in error_messages %}
+        <p class="alert alert-danger mb-2">{{ error_message }}</p>
+        {% endfor %}
+    </div>
+
+    <section>
+        <h4>Contact Information</h4>
+        <div class="container p-5 my-5 border">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="first_name_label" for="first_name" class="form-label">First Name</label>
+                        <input id="first_name" name="first_name" type="text" class="form-control"
+                            value="{{contact.first_name}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="last_name_label" for="last_name" class="form-label">Last Name</label>
+                        <input id="last_name" name="last_name" type="text" class="form-control"
+                            value="{{contact.last_name}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="title_label" for="title" class="form-label">Title</label>
+                        <input id="title" name="title" type="text" class="form-control" value="{{contact.title}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="online_profile_label" for="online_profile" class="form-label">Online
+                            Profile</label>
+                        <input id="online_profile" name="online_profile" type="url" class="form-control"
+                            value="{{contact.online_profile}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="email_address_label" for="email_address" class="form-label">Email Address</label>
+                        <input id="email_address" name="email_address" type="email" class="form-control"
+                            value="{{contact.email_address}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="telephone_number_label" for="telephone_number" class="form-label">Telephone
+                            Number</label>
+                        <input id="telephone_number" name="telephone_number" type="tel" class="form-control"
+                            value="{{contact.telephone_number}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h4>Company Information</h4>
+        <div class="container p-5 my-5 border">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="company_name_label" for="company_name" class="form-label">Company Name</label>
+                        <input id="company_name" name="company_name" type="text" class="form-control"
+                            value="{{contact.company_name}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="company_website_label" for="company_website" class="form-label">Company
+                            Website</label>
+                        <input id="company_website" name="company_website" type="url" class="form-control"
+                            value="{{contact.company_website}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="company_address_label" for="company_address" class="form-label">Company
+                            Address</label>
+                        <input id="company_address" name="company_address" type="text" class="form-control"
+                            value="{{contact.company_address}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="city_label" for="city" class="form-label">City</label>
+                        <input id="city" name="city" type="text" class="form-control" value="{{contact.city}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="province_label" for="province" class="form-label">Province</label>
+                        <input id="province" name="province" type="text" class="form-control"
+                            value="{{contact.province}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="postal_code_label" for="postal_code" class="form-label">Postal Code</label>
+                        <input id="postal_code" name="postal_code" type="text" class="form-control"
+                            value="{{contact.postal_code}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="country_label" for="country" class="form-label">Country</label>
+                        <select id="country" name="country" class="form-select" value="{{contact.country}}">
+                            <option>Canada</option>
+                            <option>United States</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h4>Job Information</h4>
+        <div class="container p-5 my-5 border">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="mb-3">
+                        <label id="position_title_label" for="position_title" class="form-label">Position
+                            Title</label>
+                        <input id="position_title" name="position_title" type="text" class="form-control"
+                            value="{{contact.position_title}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="job_posting_label" for="job_posting" class="form-label">Job Posting URL</label>
+                        <input id="job_posting" name="job_posting" type="url" class="form-control"
+                            value="{{contact.job_posting}}" />
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="mb-3">
+                        <label id="job_type_label" for="job_type" class="form-label">Job Type</label>
+                        <select id="job_type" name="job_type" class="form-select" value="{{contact.job_type}}">
+                            <option>Progress OpenEdge 4GL/ABL Application Development</option>
+                            <option>Machine Learning Engineering</option>
+                            <option>Website Development</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <button id="submitContact" type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="{% static 'scripts/contact.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% load static %}
+{% load bootstrap5 %}
+{% load fontawesome_5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block page_title %}Frank Lobe{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    {% fontawesome_5_static %}
+</head>
+
+<body>
+    <div class="jumbotron">
+        <header>
+            <nav class="navbar bg-dark navbar-dark margin-top mb-4">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <nav>
+                        <ul class="navbar-nav p-2">
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block home_active %}{% endblock %}" href="home"><i
+                                        class="fas fa-home"></i> Home</a>
+                            </li>
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block skill_active %}{% endblock %}" href="skill"><i
+                                        class="fas fa-keyboard"></i> Skill</a>
+                            </li>
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block employment_active %}{% endblock %}" href="employment"><i
+                                        class="fas fa-briefcase"></i> Employment</a>
+                            </li>
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block experience_active %}{% endblock %}" href="experience"><i
+                                        class="fas fa-desktop"></i> Experience</a>
+                            </li>
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block certification_active %}{% endblock %}"
+                                    href="certification"><i class="fas fa-certificate"></i> Certification</a>
+                            </li>
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block education_active %}{% endblock %}" href="education"><i
+                                        class="fas fa-university"></i> Education</a>
+                            </li>
+                            <li class="nav-item pr-4">
+                                <a class="nav-link {% block contact_active %}{% endblock %}" href="contact"><i
+                                        class="fas fa-envelope"></i> Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </nav>
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-12 text-left">
+                    <img class="img-fluid rounded" alt="myPhoto" src="{% static 'images/FrankLobe.png' %}" />
+                </div>
+                <div class="col-xl-10 col-lg-9 col-md-8 col-sm-12">
+                    <address>
+                        <div class="row">
+                            <div
+                                class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-lg-left text-md-left text-sm-left text-xl-left">
+                                <p class="display-4">
+                                    Frank Lobe
+                                </p>
+                                <p class="lead">
+                                    Senior Application Developer & Architect<br />
+                                </p>
+                                <p class="lead">
+                                    Creative technology solutions to complex business problems
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="row mb-3">
+                                    <div
+                                        class="font-weight-bold col-xl-1 col-lg-1 col-md-1 col-sm-12 text-xl-right text-lg-right text-md-right text-sm-left">
+                                        Telephone:
+                                    </div>
+                                    <div class="col-xl-11 col-lg-11 col-md-11 col-sm-12 text-left">
+                                        +1 (647) 220-5623
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div
+                                        class="font-weight-bold col-xl-1 col-lg-1 col-md-1 col-sm-12 text-xl-right text-lg-right text-md-right text-sm-left">
+                                        Email:
+                                    </div>
+                                    <div class="col-xl-11 col-lg-11 col-md-11 col-sm-12 text-left">
+                                        frank.lobe@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </address>
+                    <hr>
+                    <div class="row align-middle">
+                        <div class="col-xl-1 col-lg-2 col-md-3 col-sm-12">
+                            <a href="https://www.linkedin.com/in/franklobe/" target="_blank"><img class="img-fluid mt-3"
+                                    alt="LinkedIn" src="{% static 'images/LinkedIn.png' %}" /></a>
+                        </div>
+                        <div class="col-xl-1 col-lg-2 col-md-3 col-sm-12">
+                            <a href="https://www.kaggle.com/franklobe" target="_blank"><img class="img-fluid mt-3"
+                                    alt="Kaggle" src="{% static 'images/Kaggle.png' %}" /></a>
+                        </div>
+                        <div class="col-xl-1 col-lg-2 col-md-3 col-sm-12">
+                            <a href="https://github.com/FrankLobe/" target="_blank"><img class="img-fluid mt-3"
+                                    alt="GitHub" src="{% static 'images/Github.png' %}" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="container p-5 shadow-lg">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                {% block page_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
